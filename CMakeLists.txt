@@ -19,6 +19,10 @@ set(SRC
   "src/gui/window.h"
   "src/gui/canvans.cpp"
   "src/gui/canvans.h"
+  "src/physics/object.cpp"
+  "src/physics/object.h"
+  "src/physics/physics.h"
+  "src/physics/physics.cpp"
 )
 
 # Setup executables
