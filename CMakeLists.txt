@@ -24,6 +24,8 @@ set(SRC
   "src/physics/object.h"
   "src/physics/physics.h"
   "src/physics/physics.cpp"
+  "src/physics/space/planet.cpp"
+  "src/physics/space/planet.h"
 )
 
 # Setup executables

@@ -2,7 +2,7 @@
 
 #include "physics.h"
 
-Object::Object(Physics* p) {
+void Object::Init(Physics* p) {
   physics = p;
   // Записиываем physics id после регистрации в системе физики
   pid = physics->RegisterObject(this);
@@ -10,5 +10,5 @@ Object::Object(Physics* p) {
 
 Object::~Object() {
   // Удаляем объект из системы физики
-  physics->UnregisterObject(pid);
+  if (!pid) physics->UnregisterObject(pid);
 }

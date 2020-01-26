@@ -9,7 +9,7 @@ gui::Canvans::Canvans(sf::RenderWindow *rw) {
 
 void gui::Canvans::Draw() {
   // Перебор всех объектов и вызов отрисовки для них
-  for (auto object : objects) object->Draw();
+  for (auto object : objects) object->Draw(render, offset);
 }
 
 void gui::Canvans::Tick() {
