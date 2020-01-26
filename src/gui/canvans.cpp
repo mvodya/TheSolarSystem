@@ -69,6 +69,12 @@ void gui::Canvans::MouseEvent(sf::Event mouse_event) {
     offset.x += sf::Mouse::getPosition().x - last_mouse_pos.x;
     offset.y += sf::Mouse::getPosition().y - last_mouse_pos.y;
   }
+  // Зумирование колесом мыши
+  if (mouse_event.type == sf::Event::MouseWheelMoved) {
+    double new_scale = scale + mouse_event.mouseWheel.delta* 0.1;
+    if (new_scale > 3 || new_scale < 0.5) return;
+    scale = new_scale;
+  }
 
   // Записываем позицию мышки
   last_mouse_pos.x = sf::Mouse::getPosition().x;

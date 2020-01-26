@@ -45,6 +45,7 @@ void gui::Window::EventProcessor(sf::Event event) {
     // Обработка событий мыши
     case sf::Event::MouseButtonPressed:
     case sf::Event::MouseMoved:
+    case sf::Event::MouseWheelMoved:
       canvans->MouseEvent(event);
       break;
 
