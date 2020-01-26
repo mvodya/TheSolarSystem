@@ -62,3 +62,15 @@ void gui::Canvans::DrawGrid() {
     render->draw(line, 2, sf::Lines);
   }
 }
+
+void gui::Canvans::MouseEvent(sf::Event mouse_event) {
+  // Перемещение по ЛКМ
+  if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)) {
+    offset.x += sf::Mouse::getPosition().x - last_mouse_pos.x;
+    offset.y += sf::Mouse::getPosition().y - last_mouse_pos.y;
+  }
+
+  // Записываем позицию мышки
+  last_mouse_pos.x = sf::Mouse::getPosition().x;
+  last_mouse_pos.y = sf::Mouse::getPosition().y;
+}

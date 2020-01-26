@@ -41,6 +41,13 @@ void gui::Window::EventProcessor(sf::Event event) {
       window->setView(
           sf::View(sf::FloatRect(0, 0, event.size.width, event.size.height)));
       break;
+
+    // Обработка событий мыши
+    case sf::Event::MouseButtonPressed:
+    case sf::Event::MouseMoved:
+      canvans->MouseEvent(event);
+      break;
+
     default:
       break;
   }

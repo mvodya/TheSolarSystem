@@ -23,6 +23,9 @@ class Canvans {
   // Маштаб полотна, коэфициент, влияющий на отображаемые размеры
   double scale = 1;
 
+  // Последняя позиция мышки
+  vec2<int> last_mouse_pos;
+
  public:
   Canvans(sf::RenderWindow *rw);
 
@@ -34,6 +37,9 @@ class Canvans {
 
   // Рисуем сетку
   void DrawGrid();
+
+  // Обработка мыши
+  void MouseEvent(sf::Event mouse_event);
 };
 
 }  // namespace gui
