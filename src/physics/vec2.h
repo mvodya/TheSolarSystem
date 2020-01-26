@@ -1,5 +1,5 @@
 #include <cmath>
-
+#include <iostream>
 template <typename T>
 class vec2 {
 public:
@@ -10,6 +10,7 @@ public:
     vec2 operator+(vec2 v2);
     vec2 operator-(vec2 v2);
     vec2 operator*(T n);
+    vec2 normalization();
     T operator*(vec2 v2);
     T vectorLength();
 };
@@ -53,4 +54,12 @@ T vec2<T>::vectorLength() {
     x *= x;
     y *= y;
     return sqrt(x + y);
+}
+
+template <typename T>
+vec2<T> vec2<T>::normalization() {
+    T length = vectorLength();
+    x = sqrt(x) / length;
+    y = sqrt(y) / length;
+    return vec2(x, y);
 }
