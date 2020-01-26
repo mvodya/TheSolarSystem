@@ -19,6 +19,7 @@ set(SRC
   "src/gui/window.h"
   "src/gui/canvans.cpp"
   "src/gui/canvans.h"
+  "src/physics/vec2.h"
 )
 
 # Setup executables
