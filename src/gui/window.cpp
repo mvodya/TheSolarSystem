@@ -17,6 +17,8 @@ void gui::Window::Loop() {
     // Очистка окна
     window->clear();
 
+    // Отрисовка сетки
+    canvans->DrawGrid();
     // Отрисовка объектов
     canvans->Draw();
 
@@ -33,6 +35,11 @@ void gui::Window::EventProcessor(sf::Event event) {
     // Закрытие окна
     case sf::Event::Closed:
       window->close();
+      break;
+    // Изменение размеров окна
+    case sf::Event::Resized:
+      window->setView(
+          sf::View(sf::FloatRect(0, 0, event.size.width, event.size.height)));
       break;
     default:
       break;

@@ -2,6 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include <vector>
 
+#include "../physics/vec2.h"
 #include "../physics/object.h"
 #include "../physics/physics.h"
 
@@ -17,8 +18,8 @@ class Canvans {
   // Система физики
   Physics *physics;
 
-  // TODO: Смещение, месте, где расположен (0; 0) на экране
-  // vec2<double> offset;
+  // Смещение, место, где расположен (0; 0) на экране
+  vec2<double> offset;
   // Маштаб полотна, коэфициент, влияющий на отображаемые размеры
   double scale = 1;
 
@@ -30,6 +31,9 @@ class Canvans {
 
   // Обновление физики у объектов
   void Tick();
+
+  // Рисуем сетку
+  void DrawGrid();
 };
 
 }  // namespace gui
