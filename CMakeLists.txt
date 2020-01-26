@@ -17,6 +17,8 @@ set(SRC
   "src/main.cpp"
   "src/gui/window.cpp"
   "src/gui/window.h"
+  "src/gui/canvans.cpp"
+  "src/gui/canvans.h"
 )
 
 # Setup executables

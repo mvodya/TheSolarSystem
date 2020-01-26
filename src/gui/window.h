@@ -1,9 +1,14 @@
 #include <SFML/Graphics.hpp>
 
+#include "canvans.h"
+
 namespace gui {
 
 class Window {
+  // Главное окно
   sf::RenderWindow *window;
+  // Полотно, хранящие объекты
+  gui::Canvans *canvans;
 
  public:
   // Инициализация всей программы

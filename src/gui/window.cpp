@@ -3,6 +3,8 @@
 void gui::Window::Init() {
   // Создаем главное окно
   window = new sf::RenderWindow(sf::VideoMode(800, 600), "The Solar System");
+  // Создание полотна
+  canvans = new gui::Canvans();
 }
 
 void gui::Window::Loop() {
@@ -10,11 +12,16 @@ void gui::Window::Loop() {
   while (window->isOpen()) {
     // Обрабатываем события
     sf::Event event;
-    while (window->pollEvent(event))
-      EventProcessor(event);
+    while (window->pollEvent(event)) EventProcessor(event);
 
     // Очистка окна
     window->clear();
+
+    // Отрисовка объектов
+    canvans->Draw();
+
+    // Обновление физики
+    canvans->Tick();
 
     // Обновления окна (кадра)
     window->display();
