@@ -19,8 +19,8 @@ void gui::Canvans::Tick() {
 
 void gui::Canvans::DrawGrid() {
   sf::View view = render->getView();
-  int size_x = view.getSize().x;
-  int size_y = view.getSize().y;
+  int size_x = view.getSize().x * scale;
+  int size_y = view.getSize().y * scale;
   int size_grid = 20 * scale;
   sf::Color grid_color = sf::Color::Color(255 / 8, 255 / 8, 255 / 8);
 
@@ -29,16 +29,17 @@ void gui::Canvans::DrawGrid() {
     sf::Vertex line[2];
     line[0].position = sf::Vector2f(off, 0);
     line[0].color = grid_color;
-    line[1].position = sf::Vector2f(off, size_y);
+    line[1].position = sf::Vector2f(off, view.getSize().y);
     line[1].color = grid_color;
     render->draw(line, 2, sf::Lines);
   }
 
-  for (int off = (size_x / 2) + offset.x; off <= size_x; off += size_grid) {
+  for (int off = (size_x / 2) + offset.x; off <= view.getSize().x;
+       off += size_grid) {
     sf::Vertex line[2];
     line[0].position = sf::Vector2f(off, 0);
     line[0].color = grid_color;
-    line[1].position = sf::Vector2f(off, size_y);
+    line[1].position = sf::Vector2f(off, view.getSize().y);
     line[1].color = grid_color;
     render->draw(line, 2, sf::Lines);
   }
@@ -48,19 +49,25 @@ void gui::Canvans::DrawGrid() {
     sf::Vertex line[2];
     line[0].position = sf::Vector2f(0, off);
     line[0].color = grid_color;
-    line[1].position = sf::Vector2f(size_x, off);
     line[1].color = grid_color;
     render->draw(line, 2, sf::Lines);
   }
 
-  for (int off = (size_y / 2) + offset.y; off <= size_y; off += size_grid) {
+  for (int off = (size_y / 2) + offset.y; off <= view.getSize().y;
+       off += size_grid) {
     sf::Vertex line[2];
     line[0].position = sf::Vector2f(0, off);
     line[0].color = grid_color;
-    line[1].position = sf::Vector2f(size_x, off);
+    line[1].position = sf::Vector2f(view.getSize().x, off);
     line[1].color = grid_color;
     render->draw(line, 2, sf::Lines);
   }
+
+  // test circle
+  sf::CircleShape c(5 * scale);
+  c.setFillColor(sf::Color::White);
+  c.setPosition(offset.x, offset.y);
+  render->draw(c);
 }
 
 void gui::Canvans::MouseEvent(sf::Event mouse_event) {
@@ -71,7 +78,7 @@ void gui::Canvans::MouseEvent(sf::Event mouse_event) {
   }
   // Зумирование колесом мыши
   if (mouse_event.type == sf::Event::MouseWheelMoved) {
-    double new_scale = scale + mouse_event.mouseWheel.delta* 0.1;
+    double new_scale = scale + mouse_event.mouseWheel.delta * 0.1;
     if (new_scale > 3 || new_scale < 0.5) return;
     scale = new_scale;
   }
