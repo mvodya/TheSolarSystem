@@ -49,6 +49,7 @@ void gui::Canvans::DrawGrid() {
     sf::Vertex line[2];
     line[0].position = sf::Vector2f(0, off);
     line[0].color = grid_color;
+    line[1].position = sf::Vector2f(view.getSize().x, off);
     line[1].color = grid_color;
     render->draw(line, 2, sf::Lines);
   }
