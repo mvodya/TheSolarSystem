@@ -1,3 +1,5 @@
+#include <cmath>
+
 template <typename T>
 class vec2 {
 public:
@@ -9,6 +11,7 @@ public:
     vec2 operator-(vec2 v2);
     vec2 operator*(T n);
     T operator*(vec2 v2);
+    T vectorLength();
 };
 
 template <typename T>
@@ -43,4 +46,11 @@ vec2<T> vec2<T>::operator*(T n) {
     x = x * n;
     y = y * n;
     return vec2(x, y);
+}
+
+template <typename T>
+T vec2<T>::vectorLength() {
+    x *= x;
+    y *= y;
+    return sqrt(x + y);
 }
