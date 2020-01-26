@@ -4,15 +4,20 @@
 namespace gui {
 
 class Canvans {
-  // TODO: массив объектов
+  // TODO: РјР°СЃСЃРёРІ РѕР±СЉРµРєС‚РѕРІ
   // stack<Obejct> objects;
 
+  // РћРєРЅРѕ РґР»СЏ СЂРµРЅРґРµСЂР°
+  sf::RenderWindow *render;
+
  public:
-  // Отрисовка объектов
+  Canvans(sf::RenderWindow *rw);
+
+  // РћС‚СЂРёСЃРѕРІРєР° РѕР±СЉРµРєС‚РѕРІ
   void Draw();
 
-  // Обновление физики у объектов
+  // РћР±РЅРѕРІР»РµРЅРёРµ С„РёР·РёРєРё Сѓ РѕР±СЉРµРєС‚РѕРІ
   void Tick();
-}
+};
 
 }  // namespace gui

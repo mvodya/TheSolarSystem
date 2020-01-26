@@ -4,7 +4,7 @@ void gui::Window::Init() {
   // Создаем главное окно
   window = new sf::RenderWindow(sf::VideoMode(800, 600), "The Solar System");
   // Создание полотна
-  canvans = new gui::Canvans();
+  canvans = new gui::Canvans(window);
 }
 
 void gui::Window::Loop() {

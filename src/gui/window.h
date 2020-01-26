@@ -5,10 +5,11 @@
 namespace gui {
 
 class Window {
-  // Главное окно
   sf::RenderWindow *window;
   // Полотно, хранящие объекты
   gui::Canvans *canvans;
+  // Место отрисовки для полотна
+  sf::RenderTexture *canvans_render;
 
  public:
   // Инициализация всей программы
