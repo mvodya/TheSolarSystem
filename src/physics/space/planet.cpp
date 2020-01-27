@@ -9,7 +9,7 @@ void Planet::Draw(sf::RenderWindow* render, vec2<double> offset, double scale) {
   c.setPosition(offset.x - draw_radius * scale, offset.y - draw_radius * scale);
   render->draw(c);
 
-  if (1) {
+  if (settings->draw_names) {
     sf::Text text;
     text.setFont(this->settings->default_font);
     text.setString(draw_name);

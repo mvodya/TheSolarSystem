@@ -10,6 +10,9 @@ void gui::Window::Init() {
 
   // Создаем настрйки отображения
   settings = new gui::Settings();
+  settings->center_lines = false;
+  settings->draw_grid = true;
+  settings->draw_names = true;
 
   // Загружаем шрифты
   // Если неудачно - программа закроется
@@ -33,7 +36,7 @@ void gui::Window::Loop() {
     window->clear();
 
     // Отрисовка сетки
-    canvans->DrawGrid();
+    if (settings->draw_grid) canvans->DrawGrid();
     // Отрисовка объектов
     canvans->Draw();
 
@@ -62,6 +65,19 @@ void gui::Window::EventProcessor(sf::Event event) {
     case sf::Event::MouseMoved:
     case sf::Event::MouseWheelMoved:
       canvans->MouseEvent(event);
+      break;
+
+    // Обработка нажатий клавиш
+    case sf::Event::KeyPressed:
+      // Включение / выключение сетки
+      if (event.key.code == sf::Keyboard::G)
+        settings->draw_grid = !settings->draw_grid;
+      // Включение / выключение отображения имен планет
+      if (event.key.code == sf::Keyboard::L)
+        settings->draw_names = !settings->draw_names;
+      // Включение / выключение линий центров
+      if (event.key.code == sf::Keyboard::T)
+        settings->center_lines = !settings->center_lines;
       break;
 
     default:
