@@ -1,6 +1,7 @@
 #include "physics.h"
 
 void Physics::Tick() {
+  // Промежуточные расчеты изменения сил инерции
   std::map<int, vec2d> miracle;
   for (auto object_a : objects) {
     vec2d f = object_a.force;
@@ -12,6 +13,11 @@ void Physics::Tick() {
       // direction = direction * (1/distance);
       // f = f + direction;
     }
+    miracle[object_a.GetPID()] = f;
+  }
+  // Запись расчетов
+  for (auto object : objects) {
+    object.force = miracle[object.GetPID()];
   }
 }
 

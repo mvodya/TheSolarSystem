@@ -31,5 +31,8 @@ class Object {
   void Init(Physics* p);
 
   // Отрисовка объекта
-  virtual void Draw(sf::RenderWindow *render, vec2d& offset) = 0;
+  virtual void Draw(sf::RenderWindow* render, vec2d& offset) = 0;
+
+  // Получение physical id
+  int GetPID() { return pid; }
 };
