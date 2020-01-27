@@ -98,4 +98,64 @@ void LOAD_DATA(std::vector<Object *> &objects, Physics *physics) {
   deimos->perigee.km(23500 * 700);
   deimos->speed.km(3600 * 200);
   deimos->Init(physics);
+
+  /* Планета
+   * Юпитер
+   * https://ru.wikipedia.org/wiki/Юпитер
+   */
+  Planet *jupiter =
+      new Planet("Jupiter", 7, sf::Color(0x4dccf0ff), sf::Color(0x0a6906ff));
+  objects.push_back(jupiter);
+  jupiter->apogee.ae(5.458104);
+  jupiter->perigee.ae(4.950429);
+  jupiter->speed.km(47052);
+  jupiter->Init(physics);
+
+  /* Планета
+   * Сатурн
+   * https://ru.wikipedia.org/wiki/Сатурн
+   */
+  Planet *saturn =
+      new Planet("Saturn", 6, sf::Color(0x4dccf0ff), sf::Color(0x0a6906ff));
+  objects.push_back(saturn);
+  saturn->apogee.ae(10.116);
+  saturn->perigee.ae(9.048);
+  saturn->speed.km(34884);
+  saturn->Init(physics);
+
+  /* Планета
+   * Уран
+   * https://ru.wikipedia.org/wiki/Уран_(планета)
+   */
+  Planet *uranus =
+      new Planet("Uranus", 6, sf::Color(0x4dccf0ff), sf::Color(0x0a6906ff));
+  objects.push_back(uranus);
+  uranus->apogee.ae(20.08330526);
+  uranus->perigee.ae(18.37551863);
+  uranus->speed.km(24516);
+  uranus->Init(physics);
+
+  /* Планета
+   * Нептун
+   * https://ru.wikipedia.org/wiki/Нептун
+   */
+  Planet *neptune =
+      new Planet("Neptune", 6, sf::Color(0x4dccf0ff), sf::Color(0x0a6906ff));
+  objects.push_back(neptune);
+  neptune->apogee.ae(30.44125206);
+  neptune->perigee.ae(29.76607095);
+  neptune->speed.km(19565);
+  neptune->Init(physics);
+
+  /* Планета
+   * Плутон
+   * https://ru.wikipedia.org/wiki/Плутонpluto
+   */
+  Planet *pluto =
+      new Planet("Pluto", 1.8, sf::Color(0x4dccf0ff), sf::Color(0x0a6906ff));
+  objects.push_back(pluto);
+  pluto->apogee.ae(49.31);
+  pluto->perigee.ae(29.667);
+  pluto->speed.km(16808);
+  pluto->Init(physics);
 }
