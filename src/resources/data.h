@@ -7,7 +7,7 @@ void LOAD_DATA(std::vector<Object *> &objects, Physics *physics) {
    * https://ru.wikipedia.org/wiki/Солнце
    */
   Planet *sun =
-      new Planet("Sun", 8, sf::Color(0xfffcd1ff), sf::Color(0xffb917ff));
+      new Planet("Sun", 12, sf::Color(0xfffcd1ff), sf::Color(0xffb917ff));
   objects.push_back(sun);
 
   /* Планета
@@ -15,7 +15,7 @@ void LOAD_DATA(std::vector<Object *> &objects, Physics *physics) {
    * https://ru.wikipedia.org/wiki/Меркурий
    */
   Planet *mercury =
-      new Planet("Mercury", 2, sf::Color(0xffffff), sf::Color(0xffffff));
+      new Planet("Mercury", 2, sf::Color(0xc4be95ff), sf::Color(0x5c5a4dff));
   objects.push_back(mercury);
   mercury->apogee.ae(0.46670079);
   mercury->perigee.ae(0.30749951);
@@ -27,7 +27,7 @@ void LOAD_DATA(std::vector<Object *> &objects, Physics *physics) {
    * https://ru.wikipedia.org/wiki/Венера
    */
   Planet *venus =
-      new Planet("Venus", 3, sf::Color(0xffffff), sf::Color(0xffffff));
+      new Planet("Venus", 3, sf::Color(0xc7c2b7ff), sf::Color(0x877b60ff));
   objects.push_back(venus);
   venus->apogee.ae(0.72823128);
   venus->perigee.ae(0.71843270);
@@ -78,7 +78,7 @@ void LOAD_DATA(std::vector<Object *> &objects, Physics *physics) {
    * http://svagor.com/fobos-cel-poleta-na-mars
    */
   Moon *phobos =
-      new Moon("Phobos", 1, sf::Color(0x999999ff), sf::Color(0x575757ff), mars);
+      new Moon("Phobos", 1, sf::Color(0x706a66ff), sf::Color(0x402f24ff), mars);
   objects.push_back(phobos);
   phobos->apogee.km(9518 * 1000);
   phobos->perigee.km(9235 * 1000);
@@ -104,7 +104,7 @@ void LOAD_DATA(std::vector<Object *> &objects, Physics *physics) {
    * https://ru.wikipedia.org/wiki/Юпитер
    */
   Planet *jupiter =
-      new Planet("Jupiter", 7, sf::Color(0x4dccf0ff), sf::Color(0x0a6906ff));
+      new Planet("Jupiter", 9, sf::Color(0xe6cea8ff), sf::Color(0x70482cff));
   objects.push_back(jupiter);
   jupiter->apogee.ae(5.458104);
   jupiter->perigee.ae(4.950429);
@@ -116,7 +116,7 @@ void LOAD_DATA(std::vector<Object *> &objects, Physics *physics) {
    * https://ru.wikipedia.org/wiki/Сатурн
    */
   Planet *saturn =
-      new Planet("Saturn", 6, sf::Color(0x4dccf0ff), sf::Color(0x0a6906ff));
+      new Planet("Saturn", 8, sf::Color(0xa39560ff), sf::Color(0xcfc399ff));
   objects.push_back(saturn);
   saturn->apogee.ae(10.116);
   saturn->perigee.ae(9.048);
@@ -128,7 +128,7 @@ void LOAD_DATA(std::vector<Object *> &objects, Physics *physics) {
    * https://ru.wikipedia.org/wiki/Уран_(планета)
    */
   Planet *uranus =
-      new Planet("Uranus", 6, sf::Color(0x4dccf0ff), sf::Color(0x0a6906ff));
+      new Planet("Uranus", 6, sf::Color(0x8ba5b3ff), sf::Color(0x7e9294ff));
   objects.push_back(uranus);
   uranus->apogee.ae(20.08330526);
   uranus->perigee.ae(18.37551863);
@@ -140,7 +140,7 @@ void LOAD_DATA(std::vector<Object *> &objects, Physics *physics) {
    * https://ru.wikipedia.org/wiki/Нептун
    */
   Planet *neptune =
-      new Planet("Neptune", 6, sf::Color(0x4dccf0ff), sf::Color(0x0a6906ff));
+      new Planet("Neptune", 6, sf::Color(0x7490b8ff), sf::Color(0x4b6282ff));
   objects.push_back(neptune);
   neptune->apogee.ae(30.44125206);
   neptune->perigee.ae(29.76607095);
@@ -149,10 +149,10 @@ void LOAD_DATA(std::vector<Object *> &objects, Physics *physics) {
 
   /* Планета
    * Плутон
-   * https://ru.wikipedia.org/wiki/Плутонpluto
+   * https://ru.wikipedia.org/wiki/Плутон
    */
   Planet *pluto =
-      new Planet("Pluto", 1.8, sf::Color(0x4dccf0ff), sf::Color(0x0a6906ff));
+      new Planet("Pluto", 1.8, sf::Color(0xe3dabfff), sf::Color(0x524129ff));
   objects.push_back(pluto);
   pluto->apogee.ae(49.31);
   pluto->perigee.ae(29.667);
