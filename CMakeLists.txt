@@ -25,6 +25,7 @@ set(SRC
   "src/physics/physics.h"
   "src/physics/physics.cpp"
   "src/physics/mass.h"
+  "src/physics/distance.h"
 )
 
 # Setup executables
