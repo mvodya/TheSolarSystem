@@ -34,6 +34,7 @@ set(SRC
   "src/physics/space/planet.h"
   "src/physics/space/moon.cpp"
   "src/physics/space/moon.h"
+  "src/resources/data.h"
 )
 
 # Setup executables
