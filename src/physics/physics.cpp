@@ -4,7 +4,7 @@ void Physics::Tick() {
   // Промежуточные расчеты изменения сил инерции
   std::map<int, vec2d> miracle;
   for (auto object_a : objects) {
-    vec2d f = object_a.force;
+    vec2d f = object_a.second->force;
     for (auto object_b : objects) {
       // TODO: Делаем некую физическую магию между двумя объектами
       // double distance = vec2::distance(object_a.position,  object_b.position); 
@@ -13,11 +13,11 @@ void Physics::Tick() {
       // direction = direction * (1/distance);
       // f = f + direction;
     }
-    miracle[object_a.GetPID()] = f;
+    miracle[object_a.first] = f;
   }
   // Запись расчетов
   for (auto object : objects) {
-    object.force = miracle[object.GetPID()];
+    object.second->force = miracle[object.first];
   }
 }
 
