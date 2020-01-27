@@ -71,6 +71,13 @@ vec2<T> vec2<T>::normalization() {
     return vec2(x, y);
 }
 
+// Расстояние между векторами
+template <typename T>
+T distance(vec2<T> v1, vec2<T> v2) {
+    auto v3 = v1 - v2;
+    return v3.vectorLength();
+}
+
 typedef vec2<int> vec2i;
 typedef vec2<long> vec2l;
 typedef vec2<float> vec2f;
