@@ -6,15 +6,18 @@
 class Physics;
 
 class Object {
+ public:
   // Расположение объекта
-  // vec2<double> position;
+  vec2<double> position;
 
   // Вектор силы инерции объекта
-  // vec2<double> force;
+  vec2<double> force;
 
   // Масса объкта
-  // Mass mass;
+  // TODO: Mass mass;
+  double mass;
 
+ private:
   // Система физики, в которой зарегистрирован объект
   Physics* physics;
   // id объекта в системе физики
@@ -28,5 +31,5 @@ class Object {
   void Init(Physics* p);
 
   // Отрисовка объекта
-  virtual void Draw(sf::RenderWindow *render, vec2<double>& offset) = 0;
+  virtual void Draw(sf::RenderWindow* render, vec2<double>& offset) = 0;
 };
