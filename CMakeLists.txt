@@ -32,6 +32,8 @@ set(SRC
   "src/physics/distance.h"
   "src/physics/space/planet.cpp"
   "src/physics/space/planet.h"
+  "src/physics/space/moon.cpp"
+  "src/physics/space/moon.h"
 )
 
 # Setup executables

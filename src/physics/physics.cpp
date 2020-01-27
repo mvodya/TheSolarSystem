@@ -11,7 +11,6 @@ void Physics::Tick(double scale) {
         sin(delta_time * object->speed.pix()) * object->apogee.pix() * scale;
     object->position.y =
         cos(delta_time * object->speed.pix()) * object->perigee.pix() * scale;
-    continue;
   }
 }
 

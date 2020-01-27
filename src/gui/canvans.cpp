@@ -1,5 +1,6 @@
 #include "canvans.h"
 #include "../physics/space/planet.h"
+#include "../physics/space/moon.h"
 
 gui::Canvans::Canvans(sf::RenderWindow *rw) {
   // Место отрисовки получаем от окна
@@ -7,19 +8,26 @@ gui::Canvans::Canvans(sf::RenderWindow *rw) {
   // Создаем систему физики
   physics = new Physics();
 
-  Planet *p = new Planet("test", 10, sf::Color::Blue, sf::Color::Green);
+  Planet *p = new Planet("test", 5, sf::Color::Blue, sf::Color::Green);
   objects.push_back(p);
   p->apogee.ae(0.98329134);
   p->perigee.ae(1.00000261);
   p->speed.km(107218);
   p->Init(physics);
 
-  Planet *p2 = new Planet("test2", 8, sf::Color::Red, sf::Color::Yellow);
+  Planet *p2 = new Planet("test2", 3, sf::Color::Red, sf::Color::Yellow);
   objects.push_back(p2);
   p2->apogee.ae(1.381);
   p2->perigee.ae(1.666);
   p2->speed.km(86400);
   p2->Init(physics);
+
+  Moon *m = new Moon("test_moon", 2, sf::Color::White, sf::Color::Yellow, p);
+  objects.push_back(m);
+  m->apogee.km(404000*50);
+  m->perigee.km(363104*50);
+  m->speed.km(3682*50);
+  m->Init(physics);
 }
 
 void gui::Canvans::Draw() {

@@ -3,7 +3,7 @@
 
 #include "../object.h"
 
-class Planet : public Object {
+class Moon : public Object {
   // Отображаемый радиус
   double draw_radius;
   // Отображаемый цвет заливки
@@ -12,14 +12,16 @@ class Planet : public Object {
   sf::Color draw_out_color;
   // Отображаемое имя
   std::string draw_name;
+  // Объект, вокруг которого вращается луна
+  Object *parent;
 
  public:
-  Planet(std::string name, double radius, sf::Color color_fill,
-         sf::Color color_out)
+  Moon(std::string name, double radius, sf::Color color_fill,
+         sf::Color color_out, Object *p)
       : draw_name(name),
         draw_radius(radius),
         draw_fill_color(color_fill),
-        draw_out_color(color_out){};
+        draw_out_color(color_out), parent(p){};
 
   virtual void Draw(sf::RenderWindow* render, vec2<double> offset,
                     double scale);
