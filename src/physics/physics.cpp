@@ -1,9 +1,16 @@
 #include "physics.h"
 
 void Physics::Tick() {
+  std::map<int, vec2d> miracle;
   for (auto object_a : objects) {
+    vec2d f = object_a.force;
     for (auto object_b : objects) {
       // TODO: Делаем некую физическую магию между двумя объектами
+      // double distance = vec2::distance(object_a.position,  object_b.position); 
+      // vec2d direction = object_a.position - object_b.position;
+      // direction = direction.normalization();
+      // direction = direction * (1/distance);
+      // f = f + direction;
     }
   }
 }
