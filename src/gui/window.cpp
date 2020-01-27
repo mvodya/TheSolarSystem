@@ -5,6 +5,9 @@ void gui::Window::Init() {
   window = new sf::RenderWindow(sf::VideoMode(800, 600), "The Solar System");
   // Установка лимита FPS
   window->setFramerateLimit(60);
+  // Вертикальная синхронизация
+  window->setVerticalSyncEnabled(true);
+
   // Создание полотна
   canvans = new gui::Canvans(window);
 }
