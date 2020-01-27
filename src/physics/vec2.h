@@ -1,3 +1,4 @@
+#pragma once
 #include <cmath>
 
 template <typename T>
@@ -28,7 +29,6 @@ vec2<T> vec2<T>::operator+(vec2 v2) {
     y = y + v2.y;
     return vec2(x, y);
 }
-
 
 // Разность векторов
 template <typename T>
