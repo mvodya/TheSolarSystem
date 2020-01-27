@@ -5,6 +5,7 @@
 #include "../physics/object.h"
 #include "../physics/physics.h"
 #include "../physics/vec2.h"
+#include "settings.h"
 
 namespace gui {
 
@@ -29,8 +30,11 @@ class Canvans {
   // Таймер для подсчета длительности кадра
   sf::Clock deltaClock;
 
+  // Настройки
+  gui::Settings *settings;
+
  public:
-  Canvans(sf::RenderWindow *rw);
+  Canvans(sf::RenderWindow *rw, gui::Settings *s);
 
   // Отрисовка объектов
   void Draw();

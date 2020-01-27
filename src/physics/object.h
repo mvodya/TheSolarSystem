@@ -3,6 +3,7 @@
 
 #include "distance.h"
 #include "vec2.h"
+#include "../gui/settings.h"
 
 class Physics;
 
@@ -10,6 +11,8 @@ class Object {
  public:
   // Расположение объекта
   vec2d position;
+  // Настройки отображения
+  gui::Settings* settings;
 
   // Апогей
   Distance apogee;
@@ -29,7 +32,7 @@ class Object {
   ~Object();
 
   // Инициализация объекта
-  void Init(Physics* p);
+  void Init(Physics* p, gui::Settings* s);
 
   // Отрисовка объекта
   virtual void Draw(sf::RenderWindow* render, vec2d offset, double scale) = 0;

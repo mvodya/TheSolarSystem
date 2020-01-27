@@ -2,8 +2,9 @@
 
 #include "physics.h"
 
-void Object::Init(Physics* p) {
+void Object::Init(Physics* p, gui::Settings *s) {
   physics = p;
+  settings = s;
   // Записиываем physics id после регистрации в системе физики
   pid = physics->RegisterObject(this);
 }

@@ -1,13 +1,16 @@
+#include "../gui/settings.h"
 #include "../physics/space/moon.h"
 #include "../physics/space/planet.h"
 
-void LOAD_DATA(std::vector<Object *> &objects, Physics *physics) {
+void LOAD_DATA(std::vector<Object *> &objects, Physics *physics,
+               gui::Settings *settings) {
   /* TODO: Звезда
    * Солнце
    * https://ru.wikipedia.org/wiki/Солнце
    */
   Planet *sun =
       new Planet("Sun", 12, sf::Color(0xfffcd1ff), sf::Color(0xffb917ff));
+  sun->Init(physics, settings);
   objects.push_back(sun);
 
   /* Планета
@@ -16,11 +19,11 @@ void LOAD_DATA(std::vector<Object *> &objects, Physics *physics) {
    */
   Planet *mercury =
       new Planet("Mercury", 2, sf::Color(0xc4be95ff), sf::Color(0x5c5a4dff));
-  objects.push_back(mercury);
   mercury->apogee.ae(0.46670079);
   mercury->perigee.ae(0.30749951);
   mercury->speed.km(170496);
-  mercury->Init(physics);
+  mercury->Init(physics, settings);
+  objects.push_back(mercury);
 
   /* Планета
    * Венера
@@ -28,11 +31,11 @@ void LOAD_DATA(std::vector<Object *> &objects, Physics *physics) {
    */
   Planet *venus =
       new Planet("Venus", 3, sf::Color(0xc7c2b7ff), sf::Color(0x877b60ff));
-  objects.push_back(venus);
   venus->apogee.ae(0.72823128);
   venus->perigee.ae(0.71843270);
   venus->speed.km(126072);
-  venus->Init(physics);
+  venus->Init(physics, settings);
+  objects.push_back(venus);
 
   /* Планета
    * Земля
@@ -40,11 +43,11 @@ void LOAD_DATA(std::vector<Object *> &objects, Physics *physics) {
    */
   Planet *earth =
       new Planet("Earth", 3, sf::Color(0x4dccf0ff), sf::Color(0x0a6906ff));
-  objects.push_back(earth);
   earth->apogee.ae(0.98329134);
   earth->perigee.ae(1.00000261);
   earth->speed.km(107218);
-  earth->Init(physics);
+  earth->Init(physics, settings);
+  objects.push_back(earth);
 
   /* Планета
    * Земля
@@ -53,11 +56,11 @@ void LOAD_DATA(std::vector<Object *> &objects, Physics *physics) {
    */
   Moon *moon = new Moon("Moon", 1.5, sf::Color(0x999999ff),
                         sf::Color(0x575757ff), earth);
-  objects.push_back(moon);
   moon->apogee.km(404000 * 50);
   moon->perigee.km(363104 * 50);
   moon->speed.km(3682 * 200);
-  moon->Init(physics);
+  moon->Init(physics, settings);
+  objects.push_back(moon);
 
   /* Планета
    * Марс
@@ -65,11 +68,11 @@ void LOAD_DATA(std::vector<Object *> &objects, Physics *physics) {
    */
   Planet *mars =
       new Planet("Mars", 2.5, sf::Color(0xeb6200ff), sf::Color(0x8c4919ff));
-  objects.push_back(mars);
   mars->apogee.ae(1.381);
   mars->perigee.ae(1.666);
   mars->speed.km(86400);
-  mars->Init(physics);
+  mars->Init(physics, settings);
+  objects.push_back(mars);
 
   /* Планета
    * Марс
@@ -79,11 +82,11 @@ void LOAD_DATA(std::vector<Object *> &objects, Physics *physics) {
    */
   Moon *phobos =
       new Moon("Phobos", 1, sf::Color(0x706a66ff), sf::Color(0x402f24ff), mars);
-  objects.push_back(phobos);
   phobos->apogee.km(9518 * 1000);
   phobos->perigee.km(9235 * 1000);
   phobos->speed.km(7696 * 200);
-  phobos->Init(physics);
+  phobos->Init(physics, settings);
+  objects.push_back(phobos);
 
   /* Планета
    * Марс
@@ -93,11 +96,11 @@ void LOAD_DATA(std::vector<Object *> &objects, Physics *physics) {
    */
   Moon *deimos =
       new Moon("Deimos", 1, sf::Color(0x999999ff), sf::Color(0x575757ff), mars);
-  objects.push_back(deimos);
   deimos->apogee.km(23500 * 700);
   deimos->perigee.km(23500 * 700);
   deimos->speed.km(3600 * 200);
-  deimos->Init(physics);
+  deimos->Init(physics, settings);
+  objects.push_back(deimos);
 
   /* Планета
    * Юпитер
@@ -105,11 +108,11 @@ void LOAD_DATA(std::vector<Object *> &objects, Physics *physics) {
    */
   Planet *jupiter =
       new Planet("Jupiter", 9, sf::Color(0xe6cea8ff), sf::Color(0x70482cff));
-  objects.push_back(jupiter);
   jupiter->apogee.ae(5.458104);
   jupiter->perigee.ae(4.950429);
   jupiter->speed.km(47052);
-  jupiter->Init(physics);
+  jupiter->Init(physics, settings);
+  objects.push_back(jupiter);
 
   /* Планета
    * Сатурн
@@ -117,11 +120,11 @@ void LOAD_DATA(std::vector<Object *> &objects, Physics *physics) {
    */
   Planet *saturn =
       new Planet("Saturn", 8, sf::Color(0xa39560ff), sf::Color(0xcfc399ff));
-  objects.push_back(saturn);
   saturn->apogee.ae(10.116);
   saturn->perigee.ae(9.048);
   saturn->speed.km(34884);
-  saturn->Init(physics);
+  saturn->Init(physics, settings);
+  objects.push_back(saturn);
 
   /* Планета
    * Уран
@@ -129,11 +132,11 @@ void LOAD_DATA(std::vector<Object *> &objects, Physics *physics) {
    */
   Planet *uranus =
       new Planet("Uranus", 6, sf::Color(0x8ba5b3ff), sf::Color(0x7e9294ff));
-  objects.push_back(uranus);
   uranus->apogee.ae(20.08330526);
   uranus->perigee.ae(18.37551863);
   uranus->speed.km(24516);
-  uranus->Init(physics);
+  uranus->Init(physics, settings);
+  objects.push_back(uranus);
 
   /* Планета
    * Нептун
@@ -141,11 +144,11 @@ void LOAD_DATA(std::vector<Object *> &objects, Physics *physics) {
    */
   Planet *neptune =
       new Planet("Neptune", 6, sf::Color(0x7490b8ff), sf::Color(0x4b6282ff));
-  objects.push_back(neptune);
   neptune->apogee.ae(30.44125206);
   neptune->perigee.ae(29.76607095);
   neptune->speed.km(19565);
-  neptune->Init(physics);
+  neptune->Init(physics, settings);
+  objects.push_back(neptune);
 
   /* Планета
    * Плутон
@@ -153,9 +156,9 @@ void LOAD_DATA(std::vector<Object *> &objects, Physics *physics) {
    */
   Planet *pluto =
       new Planet("Pluto", 1.8, sf::Color(0xe3dabfff), sf::Color(0x524129ff));
-  objects.push_back(pluto);
   pluto->apogee.ae(49.31);
   pluto->perigee.ae(29.667);
   pluto->speed.km(16808);
-  pluto->Init(physics);
+  pluto->Init(physics, settings);
+  objects.push_back(pluto);
 }

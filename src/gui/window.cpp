@@ -8,8 +8,18 @@ void gui::Window::Init() {
   // Вертикальная синхронизация
   window->setVerticalSyncEnabled(true);
 
+  // Создаем настрйки отображения
+  settings = new gui::Settings();
+
+  // Загружаем шрифты
+  // Если неудачно - программа закроется
+  if (!LoadFonts()) {
+    window->close();
+    return;
+  }
+
   // Создание полотна
-  canvans = new gui::Canvans(window);
+  canvans = new gui::Canvans(window, settings);
 }
 
 void gui::Window::Loop() {
@@ -57,4 +67,14 @@ void gui::Window::EventProcessor(sf::Event event) {
     default:
       break;
   }
+}
+
+bool gui::Window::LoadFonts() {
+  if (!settings->default_font.loadFromFile("Orkney Regular.otf")) {
+    // В случае неудачной загрузки - выводим сообщение в консоль и ожидаем enter
+    std::cout << "Error while loading fonts!\n";
+    std::getchar();
+    return false;
+  }
+  return true;
 }

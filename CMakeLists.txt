@@ -23,6 +23,7 @@ set(SRC
   "src/gui/window.h"
   "src/gui/canvans.cpp"
   "src/gui/canvans.h"
+  "src/gui/settings.h"
   "src/physics/vec2.h"
   "src/physics/object.cpp"
   "src/physics/object.h"

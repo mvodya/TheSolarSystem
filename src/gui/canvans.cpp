@@ -4,9 +4,10 @@
 #include "../physics/space/planet.h"
 #include "../resources/data.h"
 
-gui::Canvans::Canvans(sf::RenderWindow *rw) {
+gui::Canvans::Canvans(sf::RenderWindow *rw, gui::Settings *s) {
   // Место отрисовки получаем от окна
   render = rw;
+  settings = s;
   // Создаем систему физики
   physics = new Physics();
 
@@ -15,7 +16,7 @@ gui::Canvans::Canvans(sf::RenderWindow *rw) {
   offset.y = render->getView().getSize().y / 2;
 
   // Загрузка планет
-  LOAD_DATA(objects, physics);
+  LOAD_DATA(objects, physics, settings);
 }
 
 void gui::Canvans::Draw() {

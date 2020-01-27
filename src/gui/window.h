@@ -1,7 +1,9 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include <iostream>
 
 #include "canvans.h"
+#include "settings.h"
 
 namespace gui {
 
@@ -11,6 +13,8 @@ class Window {
   gui::Canvans *canvans;
   // Место отрисовки для полотна
   sf::RenderTexture *canvans_render;
+  // Настройки
+  gui::Settings *settings;
 
  public:
   // Инициализация всей программы
@@ -21,6 +25,9 @@ class Window {
 
   // Обработка событий
   void EventProcessor(sf::Event event);
+
+  // Загрузка шрифтов
+  bool LoadFonts();
 };
 
 }  // namespace gui
