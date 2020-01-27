@@ -15,6 +15,8 @@ class Object {
   Distance apogee;
   // Перигей
   Distance perigee;
+  // Орбитальная скорость
+  Distance speed;
 
  private:
   // Система физики, в которой зарегистрирован объект

@@ -3,10 +3,14 @@
 #include <cmath>
 
 void Physics::Tick(double scale) {
-  delta_time += 0.0001;
+  delta_time += 0.001;
+  // Перебор всех объектов
   for (auto [key, object] : objects) {
-    object->position.x = sin(delta_time) * object->apogee.pix() * scale;
-    object->position.y = cos(delta_time) * object->perigee.pix() * scale;
+    // Изменение параметров объекта
+    object->position.x =
+        sin(delta_time * object->speed.pix()) * object->apogee.pix() * scale;
+    object->position.y =
+        cos(delta_time * object->speed.pix()) * object->perigee.pix() * scale;
     continue;
   }
 }

@@ -11,12 +11,14 @@ gui::Canvans::Canvans(sf::RenderWindow *rw) {
   objects.push_back(p);
   p->apogee.ae(0.98329134);
   p->perigee.ae(1.00000261);
+  p->speed.km(107218);
   p->Init(physics);
 
   Planet *p2 = new Planet("test2", 8, sf::Color::Red, sf::Color::Yellow);
   objects.push_back(p2);
   p2->apogee.ae(1.381);
   p2->perigee.ae(1.666);
+  p2->speed.km(86400);
   p2->Init(physics);
 }
 

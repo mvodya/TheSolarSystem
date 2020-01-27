@@ -5,9 +5,13 @@
 #include "../object.h"
 
 class Planet : public Object {
+  // Отображаемый радиус
   double draw_radius;
+  // Отображаемый цвет заливки
   sf::Color draw_fill_color;
+  // Отображаемый цвет контура
   sf::Color draw_out_color;
+  // Отображаемое имя
   std::string draw_name;
 
  public:
