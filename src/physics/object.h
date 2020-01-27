@@ -1,6 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 
+#include "distance.h"
 #include "vec2.h"
 
 class Physics;
@@ -10,12 +11,10 @@ class Object {
   // Расположение объекта
   vec2d position;
 
-  // Вектор силы инерции объекта
-  vec2d force;
-
-  // Масса объкта
-  // TODO: Mass mass;
-  double mass;
+  // Апогей
+  Distance apogee;
+  // Перигей
+  Distance perigee;
 
  private:
   // Система физики, в которой зарегистрирован объект
@@ -31,7 +30,7 @@ class Object {
   void Init(Physics* p);
 
   // Отрисовка объекта
-  virtual void Draw(sf::RenderWindow* render, vec2d& offset) = 0;
+  virtual void Draw(sf::RenderWindow* render, vec2d offset, double scale) = 0;
 
   // Получение physical id
   int GetPID() { return pid; }

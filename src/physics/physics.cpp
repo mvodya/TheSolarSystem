@@ -1,23 +1,13 @@
 #include "physics.h"
 
-void Physics::Tick() {
-  // Промежуточные расчеты изменения сил инерции
-  std::map<int, vec2d> miracle;
-  for (auto object_a : objects) {
-    vec2d f = object_a.second->force;
-    for (auto object_b : objects) {
-      // TODO: Делаем некую физическую магию между двумя объектами
-      // double distance = vec2::distance(object_a.position,  object_b.position); 
-      // vec2d direction = object_a.position - object_b.position;
-      // direction = direction.normalization();
-      // direction = direction * (1/distance);
-      // f = f + direction;
-    }
-    miracle[object_a.first] = f;
-  }
-  // Запись расчетов
-  for (auto object : objects) {
-    object.second->force = miracle[object.first];
+#include <cmath>
+
+void Physics::Tick(double scale) {
+  delta_time += 0.0001;
+  for (auto [key, object] : objects) {
+    object->position.x = sin(delta_time) * object->apogee.pix() * scale;
+    object->position.y = cos(delta_time) * object->perigee.pix() * scale;
+    continue;
   }
 }
 

@@ -8,6 +8,10 @@ set_target_properties(${TARGET} PROPERTIES
   CXX_STANDARD_REQUIRED YES
   CXX_EXTENSIONS NO
 )
+# Set C++17 for MSVC
+if(MSVC)
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /std:c++17")
+endif(MSVC)
 
 # Find SFML
 find_package(SFML 2.5 COMPONENTS system window graphics REQUIRED)
@@ -26,6 +30,8 @@ set(SRC
   "src/physics/physics.cpp"
   "src/physics/mass.h"
   "src/physics/distance.h"
+  "src/physics/space/planet.cpp"
+  "src/physics/space/planet.h"
 )
 
 # Setup executables

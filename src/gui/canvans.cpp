@@ -1,20 +1,33 @@
 #include "canvans.h"
+#include "../physics/space/planet.h"
 
 gui::Canvans::Canvans(sf::RenderWindow *rw) {
   // Место отрисовки получаем от окна
   render = rw;
   // Создаем систему физики
   physics = new Physics();
+
+  Planet *p = new Planet("test", 10, sf::Color::Blue, sf::Color::Green);
+  objects.push_back(p);
+  p->apogee.ae(0.98329134);
+  p->perigee.ae(1.00000261);
+  p->Init(physics);
+
+  Planet *p2 = new Planet("test2", 8, sf::Color::Red, sf::Color::Yellow);
+  objects.push_back(p2);
+  p2->apogee.ae(1.381);
+  p2->perigee.ae(1.666);
+  p2->Init(physics);
 }
 
 void gui::Canvans::Draw() {
   // Перебор всех объектов и вызов отрисовки для них
-  for (auto object : objects) object->Draw(render, offset);
+  for (auto object : objects) object->Draw(render, offset, scale);
 }
 
 void gui::Canvans::Tick() {
   // Обновление физики
-  physics->Tick();
+  physics->Tick(scale);
 }
 
 void gui::Canvans::DrawGrid() {
@@ -63,12 +76,6 @@ void gui::Canvans::DrawGrid() {
     line[1].color = grid_color;
     render->draw(line, 2, sf::Lines);
   }
-
-  // test circle
-  sf::CircleShape c(5 * scale);
-  c.setFillColor(sf::Color::White);
-  c.setPosition(offset.x, offset.y);
-  render->draw(c);
 }
 
 void gui::Canvans::MouseEvent(sf::Event mouse_event) {

@@ -4,7 +4,7 @@
 const double AE = 149597870;
 
 // Коэффициент для перевода в пиксели
-const double kp = 1;
+const double kp = 0.000001;
 
 class Distance {
  private:

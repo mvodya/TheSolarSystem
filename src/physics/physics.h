@@ -8,10 +8,12 @@ class Physics {
   // Максимально выданный physics id
   // нужен для регистрации новых объектов
   int max_pid = 0;
+  // Сколько времени прошло с момента старта физики
+  double delta_time = 0;
 
  public:
   // Основной тик для физики, обновление всех обхектов
-  void Tick();
+  void Tick(double scale);
 
   // Регистрация объекта в системе физики
   int RegisterObject(Object *object);
