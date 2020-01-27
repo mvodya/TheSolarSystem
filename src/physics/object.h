@@ -6,15 +6,18 @@
 class Physics;
 
 class Object {
+ public:
   // Расположение объекта
-  // vec2d position;
+  vec2d position;
 
   // Вектор силы инерции объекта
-  // vec2d force;
+  vec2d force;
 
   // Масса объкта
-  // Mass mass;
+  // TODO: Mass mass;
+  double mass;
 
+ private:
   // Система физики, в которой зарегистрирован объект
   Physics* physics;
   // id объекта в системе физики
