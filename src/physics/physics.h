@@ -13,7 +13,7 @@ class Physics {
 
  public:
   // Основной тик для физики, обновление всех обхектов
-  void Tick(double scale);
+  void Tick(double delta, double scale);
 
   // Регистрация объекта в системе физики
   int RegisterObject(Object *object);

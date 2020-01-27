@@ -3,6 +3,8 @@
 void gui::Window::Init() {
   // Создаем главное окно
   window = new sf::RenderWindow(sf::VideoMode(800, 600), "The Solar System");
+  // Установка лимита FPS
+  window->setFramerateLimit(60);
   // Создание полотна
   canvans = new gui::Canvans(window);
 }

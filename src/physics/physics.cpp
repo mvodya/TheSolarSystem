@@ -2,8 +2,8 @@
 
 #include <cmath>
 
-void Physics::Tick(double scale) {
-  delta_time += 0.001;
+void Physics::Tick(double delta, double scale) {
+  delta_time += delta * 4;
   // Перебор всех объектов
   for (auto [key, object] : objects) {
     // Изменение параметров объекта

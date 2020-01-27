@@ -25,7 +25,8 @@ void gui::Canvans::Draw() {
 
 void gui::Canvans::Tick() {
   // Обновление физики
-  physics->Tick(scale);
+  physics->Tick(deltaClock.getElapsedTime().asSeconds(), scale);
+  deltaClock.restart();
 }
 
 void gui::Canvans::DrawGrid() {

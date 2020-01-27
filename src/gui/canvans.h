@@ -2,9 +2,9 @@
 #include <SFML/Graphics.hpp>
 #include <vector>
 
-#include "../physics/vec2.h"
 #include "../physics/object.h"
 #include "../physics/physics.h"
+#include "../physics/vec2.h"
 
 namespace gui {
 
@@ -25,6 +25,9 @@ class Canvans {
 
   // Последняя позиция мышки
   vec2i last_mouse_pos;
+
+  // Таймер для подсчета длительности кадра
+  sf::Clock deltaClock;
 
  public:
   Canvans(sf::RenderWindow *rw);
