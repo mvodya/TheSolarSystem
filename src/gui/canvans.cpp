@@ -1,6 +1,7 @@
 #include "canvans.h"
-#include "../physics/space/planet.h"
+
 #include "../physics/space/moon.h"
+#include "../physics/space/planet.h"
 #include "../resources/data.h"
 
 gui::Canvans::Canvans(sf::RenderWindow *rw) {
@@ -9,6 +10,11 @@ gui::Canvans::Canvans(sf::RenderWindow *rw) {
   // Создаем систему физики
   physics = new Physics();
 
+  // Размещение смещения полотная по центру экрана при старте
+  offset.x = render->getView().getSize().x / 2;
+  offset.y = render->getView().getSize().y / 2;
+
+  // Загрузка планет
   LOAD_DATA(objects, physics);
 }
 
