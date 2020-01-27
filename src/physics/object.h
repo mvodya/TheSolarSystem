@@ -7,10 +7,10 @@ class Physics;
 
 class Object {
   // Расположение объекта
-  // vec2<double> position;
+  // vec2d position;
 
   // Вектор силы инерции объекта
-  // vec2<double> force;
+  // vec2d force;
 
   // Масса объкта
   // Mass mass;
@@ -28,5 +28,5 @@ class Object {
   void Init(Physics* p);
 
   // Отрисовка объекта
-  virtual void Draw(sf::RenderWindow *render, vec2<double>& offset) = 0;
+  virtual void Draw(sf::RenderWindow *render, vec2d& offset) = 0;
 };

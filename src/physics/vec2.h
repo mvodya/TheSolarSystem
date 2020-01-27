@@ -70,3 +70,9 @@ vec2<T> vec2<T>::normalization() {
     y = sqrt(y) / length;
     return vec2(x, y);
 }
+
+typedef vec2<int> vec2i;
+typedef vec2<long> vec2l;
+typedef vec2<float> vec2f;
+typedef vec2<double> vec2d;
+typedef vec2<long double> vec2ld;

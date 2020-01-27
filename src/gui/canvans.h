@@ -19,12 +19,12 @@ class Canvans {
   Physics *physics;
 
   // Смещение, место, где расположен (0; 0) на экране
-  vec2<double> offset;
+  vec2d offset;
   // Маштаб полотна, коэфициент, влияющий на отображаемые размеры
   double scale = 1;
 
   // Последняя позиция мышки
-  vec2<int> last_mouse_pos;
+  vec2i last_mouse_pos;
 
  public:
   Canvans(sf::RenderWindow *rw);
