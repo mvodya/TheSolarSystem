@@ -4,14 +4,14 @@
 const double AE = 149597870;
 
 // Коэффициент для перевода в пиксели
-const double kp;
+const double kp = 1;
 
 class Distance {
  private:
   double k;
 
  public:
-  Distance(double k = 0);
+  Distance(double k = 0) { this->k = k; };
 
   // Получение ае
   double ae() { 
@@ -38,5 +38,3 @@ class Distance {
     return k * kp;
   }
 };
-
-Distance::Distance(double k) { this->k = k; }
