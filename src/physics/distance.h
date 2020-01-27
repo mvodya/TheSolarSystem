@@ -3,12 +3,15 @@
 // Значение астрономической единицы (ае)
 const double AE = 149597870;
 
+// Коэффициент для перевода в пиксели
+const double kp;
+
 class Distance {
  private:
-  int k;
+  double k;
 
  public:
-  Distance(int k = 0);
+  Distance(double k = 0);
 
   // Получение ае
   double ae() { 
@@ -16,12 +19,12 @@ class Distance {
   }
 
   // Получение км
-  int km() { 
+  double km() { 
     return k; 
   }
 
   // Запись км
-  void km(int m) { 
+  void km(double m) { 
     k = m; 
   };
 
@@ -29,6 +32,11 @@ class Distance {
   void ae(double a) { 
     k = a * AE; 
   }
+
+  // Перевод в пиксели 
+  double pix() {
+    return k * kp;
+  }
 };
 
-Distance::Distance(int k) { this->k = k; }
+Distance::Distance(double k) { this->k = k; }
