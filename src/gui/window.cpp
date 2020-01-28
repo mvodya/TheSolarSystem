@@ -37,6 +37,9 @@ void gui::Window::Loop() {
 
     // Отрисовка сетки
     if (settings->draw_grid) canvans->DrawGrid();
+
+    canvans->DrawStars();
+    
     // Отрисовка объектов
     canvans->Draw();
 

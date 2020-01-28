@@ -45,6 +45,9 @@ class Canvans {
   // Рисуем сетку
   void DrawGrid();
 
+  // Рисуем звезды
+  void DrawStars();
+
   // Обработка мыши
   void MouseEvent(sf::Event mouse_event);
 };

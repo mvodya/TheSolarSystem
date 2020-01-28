@@ -1,4 +1,5 @@
 #include "canvans.h"
+#include <random>
 
 #include "../physics/space/moon.h"
 #include "../physics/space/planet.h"
@@ -75,6 +76,26 @@ void gui::Canvans::DrawGrid() {
     line[1].position = sf::Vector2f(view.getSize().x, off);
     line[1].color = grid_color;
     render->draw(line, 2, sf::Lines);
+  }
+}
+
+void gui::Canvans::DrawStars() {
+  std::srand(0);
+  sf::View view = render->getView();
+  int size_x = view.getSize().x;
+  int size_y = view.getSize().y;
+
+  for (int i = -500; i < size_x + 500; i += 40) {
+    for (int j = -500; j < size_y + 500; j += 40) {
+      if (std::rand() % 3) continue;
+      sf::CircleShape s(rand() % 2 + 1);
+      sf::Color star_color = sf::Color::Color(0xffffffff);
+      star_color.a -= rand() % 100 + 200;
+      s.setFillColor(star_color);
+      s.setPosition(i + rand() % 40 + offset.x / 20,
+                    j + rand() % 40 + offset.y / 20);
+      render->draw(s);
+    }
   }
 }
 
