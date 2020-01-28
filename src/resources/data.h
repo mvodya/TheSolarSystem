@@ -123,6 +123,7 @@ void LOAD_DATA(std::vector<Object *> &objects, Physics *physics,
   saturn->apogee.ae(10.116);
   saturn->perigee.ae(9.048);
   saturn->speed.km(34884);
+  saturn->SetRing(sf::Color(0xffffff55), 16, 3);
   saturn->Init(physics, settings);
   objects.push_back(saturn);
 
@@ -147,6 +148,7 @@ void LOAD_DATA(std::vector<Object *> &objects, Physics *physics,
   neptune->apogee.ae(30.44125206);
   neptune->perigee.ae(29.76607095);
   neptune->speed.km(19565);
+  neptune->SetRing(sf::Color(0xffffff55), 12, 2);
   neptune->Init(physics, settings);
   objects.push_back(neptune);
 

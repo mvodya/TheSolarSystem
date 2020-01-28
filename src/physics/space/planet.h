@@ -35,7 +35,9 @@ class Planet : public Object {
                     double scale);
 
   // Установка кольца
-  void SetRing(sf::Color c, double radius = draw_radius + 3,
-               double tickness = 1)
-      : ring_color(c), ring_radius(radius), ring_tickness(tickness){};
+  void SetRing(sf::Color c, double radius = 3, double tickness = 1) {
+    ring_color = c;
+    ring_radius = radius;
+    ring_tickness = tickness;
+  };
 };

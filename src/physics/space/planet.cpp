@@ -15,14 +15,14 @@ void Planet::Draw(sf::RenderWindow* render, vec2<double> offset, double scale) {
 
   // Отрисовка кольца
   // (при условии что оно установлено)
-  if (ring_radius) {
+  if (ring_radius != 0) {
     sf::CircleShape r(ring_radius * scale);
     r.setFillColor(sf::Color(0x00000000));
     r.setOutlineThickness(ring_tickness * scale);
     r.setOutlineColor(ring_color);
-    offset = offset + position;
-    r.setPosition(offset.x - ring_radius * scale,
-                  offset.y - ring_radius * scale);
+    // offset = offset + position;
+    r.setPosition(offset.x + position.x - ring_radius * scale,
+                  offset.y + position.y - ring_radius * scale);
     render->draw(r);
   }
 
