@@ -4,14 +4,19 @@
 #include "object.h"
 
 class Physics {
-  std::map<int, Object*> objects;
+  std::map<int, Object *> objects;
   // Максимально выданный physics id
   // нужен для регистрации новых объектов
   int max_pid = 0;
   // Сколько времени прошло с момента старта физики
   double delta_time = 0;
 
+  // Настройки
+  gui::Settings *settings;
+
  public:
+  Physics(gui::Settings *s) : settings(s) {}
+
   // Основной тик для физики, обновление всех обхектов
   void Tick(double delta, double scale);
 

@@ -78,6 +78,9 @@ void gui::Window::EventProcessor(sf::Event event) {
       // Включение / выключение линий центров
       if (event.key.code == sf::Keyboard::T)
         settings->center_lines = !settings->center_lines;
+      // Включение / выключение паузы
+      if (event.key.code == sf::Keyboard::Space)
+        settings->pause = !settings->pause;
       break;
 
     default:

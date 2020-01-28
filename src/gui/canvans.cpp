@@ -9,7 +9,7 @@ gui::Canvans::Canvans(sf::RenderWindow *rw, gui::Settings *s) {
   render = rw;
   settings = s;
   // Создаем систему физики
-  physics = new Physics();
+  physics = new Physics(settings);
 
   // Размещение смещения полотная по центру экрана при старте
   offset.x = render->getView().getSize().x / 2;

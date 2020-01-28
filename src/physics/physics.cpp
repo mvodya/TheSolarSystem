@@ -3,6 +3,8 @@
 #include <cmath>
 
 void Physics::Tick(double delta, double scale) {
+  // Пауза
+  if (settings->pause) return;
   delta_time += delta * 4;
   // Перебор всех объектов
   for (auto [key, object] : objects) {

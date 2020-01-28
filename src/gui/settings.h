@@ -15,6 +15,9 @@ struct Settings {
 
   // Включены ли линии центров?
   bool center_lines;
+
+  // Включена ли пауза?
+  bool pause;
 };
 
 }  // namespace gui
