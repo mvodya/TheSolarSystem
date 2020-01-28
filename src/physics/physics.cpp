@@ -4,7 +4,7 @@
 
 void Physics::Tick(double delta, double scale) {
   // Пауза
-  if (settings->pause) return;
+  if (settings->pause) delta = 0;
   delta_time += delta * 4;
   // Перебор всех объектов
   for (auto [key, object] : objects) {
