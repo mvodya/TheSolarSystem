@@ -36,7 +36,7 @@ void gui::Canvans::DrawGrid() {
   int size_x = view.getSize().x * scale;
   int size_y = view.getSize().y * scale;
   int size_grid = 20 * scale;
-  sf::Color grid_color = sf::Color::Color(255 / 8, 255 / 8, 255 / 8);
+  sf::Color grid_color = sf::Color(255 / 8, 255 / 8, 255 / 8);
 
   // Отрисовка по X
   for (int off = (size_x / 2) + offset.x; off > 0; off -= size_grid) {
@@ -89,7 +89,7 @@ void gui::Canvans::DrawStars() {
     for (int j = -500; j < size_y + 500; j += 40) {
       if (std::rand() % 3) continue;
       sf::CircleShape s(rand() % 2 + 1);
-      sf::Color star_color = sf::Color::Color(0xffffffff);
+      sf::Color star_color = sf::Color(0xffffffff);
       star_color.a -= rand() % 100 + 200;
       s.setFillColor(star_color);
       s.setPosition(i + rand() % 40 + offset.x / 20,
