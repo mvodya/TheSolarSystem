@@ -1,0 +1,25 @@
+image: gcc
+
+cache:
+  paths:
+  - apt-cache/
+
+before_script:
+  - apt-get update
+  - apt-get -o dir::cache::archives="apt-cache" -y install cmake
+  - apt-get -o dir::cache::archives="apt-cache" -y install libsfml-dev
+
+build:
+  stage: build
+  script:
+    - mkdir build
+    - cd build
+    - cmake ..
+    - cmake --build .
+    - mkdir build
+    - mv solarsystem build/
+    - cp ../src/resources/Orkney\ Regular.otf ./build/
+  artifacts:
+    name: "GCC Build"
+    paths:
+      - build/build/
