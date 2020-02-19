@@ -16,7 +16,6 @@ build:
     - cd build
     - cmake ..
     - cmake --build .
-    - mv solarsystem build/
     - cp ../src/resources/Orkney\ Regular.otf ./
   artifacts:
     paths:
