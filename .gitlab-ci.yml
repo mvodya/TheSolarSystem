@@ -16,10 +16,9 @@ build:
     - cd build
     - cmake ..
     - cmake --build .
-    - mkdir build
     - mv solarsystem build/
-    - cp ../src/resources/Orkney\ Regular.otf ./build/
+    - cp ../src/resources/Orkney\ Regular.otf ./
   artifacts:
-    name: "GCC Build"
     paths:
-      - build/build/
+      - build/solarsystem
+      - build/Orkney\ Regular.otf
